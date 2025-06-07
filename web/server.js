@@ -50,15 +50,15 @@ app.post('/api/biometria', async (req, res) => {
 
 app.post('/api/usuarios', async (req, res) => {
     try {
-        const { nome, matricula, telefone } = req.body;
+        const { nome, matricula, cpf } = req.body;
         
-        if (!nome || !matricula || !telefone) {
+        if (!nome || !matricula || !cpf) {
         return res.status(400).json({ error: 'Preencha todos os campos' });
         }
 
         const [result] = await pool.execute(
-        'INSERT INTO usuarios (nome, matricula, telefone) VALUES (?, ?, ?)',
-        [nome, matricula, telefone]
+        'INSERT INTO usuarios (nome, matricula, cpf) VALUES (?, ?, ?)',
+        [nome, matricula, cpf]
         );
         res.json({ success: true, message: 'Usuário cadastrado' });
     } catch (err) {

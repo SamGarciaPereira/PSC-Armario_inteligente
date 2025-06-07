@@ -5,7 +5,7 @@ USE esp_biometria;
         id INT AUTO_INCREMENT PRIMARY KEY,
         nome VARCHAR(100) NOT NULL,
         matricula VARCHAR(20) NOT NULL UNIQUE,
-        telefone VARCHAR(20) NOT NULL,
+        cpf VARCHAR(11) NOT NULL,
         data_cadastro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     );  
 
